@@ -9,6 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { Link } from 'expo-router';
 
 export default function Index() {
   return (
@@ -33,13 +34,17 @@ export default function Index() {
 
           {/* Button Group */}
           <View style={styles.buttonGroup}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={{ ...styles.textSmall, color: 'black' }}>Join here</Text>
-            </TouchableOpacity>
+            <Link href="/join" asChild>
+              <TouchableOpacity style={styles.button}>
+                <Text style={{ ...styles.textSmall, color: 'black' }}>Join here</Text>
+              </TouchableOpacity>
+            </Link>
 
-            <TouchableOpacity style={styles.transparentButton}>
-              <Text style={styles.textSmall}>Sign In</Text>
-            </TouchableOpacity>
+            <Link href="/Sign" asChild>
+              <TouchableOpacity style={styles.transparentButton}>
+                <Text style={styles.textSmall}>Sign In</Text>
+              </TouchableOpacity>
+            </Link>
           </View>
 
           {/* Navigation Prompt */}

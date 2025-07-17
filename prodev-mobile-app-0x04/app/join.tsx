@@ -2,6 +2,7 @@ import { Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 import { styles } from "@/styles/_joinstyle";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { Link, router } from "expo-router";
 
 export default function Join() {
   return (
@@ -9,8 +10,10 @@ export default function Join() {
       <SafeAreaView style={styles.container}>
         {/* Navigation and Logo */}
         <View style={styles.navGroup}>
-          <Ionicons name="arrow-back" size={25} />
-          <Image source={require('@/assets/images/logo.png')} />
+          <TouchableOpacity onPress={() => router.back()}>
+            <Ionicons name="arrow-back" size={25} />
+          </TouchableOpacity>
+          <Image source={require('@/assets/images/logo-green.png')} />
         </View>
 
         {/* Headings */}
@@ -77,7 +80,11 @@ export default function Join() {
         {/* Footer Prompt */}
         <View style={styles.subTextGroup}>
           <Text style={styles.subText}>Already have an account?</Text>
-          <Text style={styles.subTextJoin}>Sign in</Text>
+          <Link href="/Sign" asChild>
+            <TouchableOpacity>
+              <Text style={styles.subTextJoin}>Sign in</Text>
+            </TouchableOpacity>
+          </Link>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
