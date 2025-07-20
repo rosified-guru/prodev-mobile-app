@@ -1,0 +1,22 @@
+import React from "react";
+import { View } from "react-native";
+import { PropertyListingCard } from "./common/PropertyListingCard";
+import { PropertyListingProps } from "../interfaces";
+
+const PropertyListing: React.FC<PropertyListingProps> = ({ listings }) => {
+  return (
+    <View
+      style={{ 
+        flex: 1,
+        // rowGap is not supported in all React Native versions.
+        // Use marginBottom on PropertyListingCard if needed.
+      }}
+    >
+      {listings?.map((listing, idx) => (
+        <PropertyListingCard {...listing} key={idx} />
+      ))}
+    </View>
+  );
+};
+
+export default PropertyListing;
